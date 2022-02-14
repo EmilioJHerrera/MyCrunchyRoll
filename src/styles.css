@@ -1,0 +1,105 @@
+.image_hero{
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+.contenedor_hero{
+    height: 60vh;
+    position: relative;
+
+}
+.bg-image {
+    /* The image used */
+    background-color: #000;
+    /* background-image: url("../src/images/keyarts.png");
+   */
+    /* Add the blur effect */
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-text {
+    /* background-color: rgb(0,0,0); */
+     /* Fallback color */
+    /* background-color: rgba(0,0,0, 0.4);  */
+    /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    /* border: 3px solid #f1f1f1; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: left;
+  }
+/* ------------------estilos de JUMBO_LIST ---------------------------*/
+
+.item-list{
+    background-color: #141519;
+    margin-top: 0.5rem;
+    padding: 0,5rem;
+}
+.texto_gris{
+    color: #A0A08B;
+}
+.texto_blanco{
+    color: #FFFFFF;
+}
+ 
+/* ------------------ FIN estilos de JUMBO_LIST ---------------------------*/
+
+.logo{
+    width: 10%;
+}
+
+.paddingVertical{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.blackBg{
+   
+    background-color: black;
+    color: #fff;
+}
+.background_gray_gradient{
+    /* background: linear-gradient(0deg,#000,#00353C); */
+    background: linear-gradient(0deg,#141519,#32353C);
+}
+
+
+.final_gradiente{
+    color: #32353C;
+}
+.inicio_gradiente{
+    color: #141519;
+}
+
+.image{
+    width: 80%;
+    transform: translateY(-20%);
+}
+
+.boton{
+    padding: 1rem;
+    border-radius: 0;
+    border: none;
+
+    background-color: #F47521;
+    color: #000;
+}
+.background_orange_gradient{
+    background: linear-gradient(to left,#F89D1C,#EF4622);
+}
+
