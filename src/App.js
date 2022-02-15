@@ -27,9 +27,9 @@ function App() {
       <Jumbo_tres/>
       <Footer/> */}
 
-      {/* <Registro/> */}
+      <Registro/>
       
-      <Main/>
+      {/* <Main/> */}
 
     </div>
   );

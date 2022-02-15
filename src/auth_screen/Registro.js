@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { Container,Row, Col } from 'react-bootstrap'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -7,6 +8,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
+import "../styles.css";
 import { SIGN_UP_URL } from '../Data/Urls';
 
 const Registro = () => {
@@ -162,36 +164,46 @@ const validar = (password) =>{
 
 
     return (
-    <div>
-        <h1>Registro</h1>
-            <form onSubmit={handleSubmit}>
-            <div>
-                <label>Nombre o correo:</label>
-                <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-            </div>
-            <div>
-                <label>contraseña:</label>
-                <input type="password" 
-                value={passwd}
-                onChange={(e)=>{setPasswd(e.target.value); validar(e.target.value)}}
-                // pattern={[
-                //     '^.{7,}$', // min 7 chars
-                    
-                //     '(?=.*[A-Z])', // uppercase letter
-                // ]}
+    <div className='blackBg'>
+      <h1>Registro</h1>
+        <Container>
+            <Row className="flex-justificar-center">
+                <Col> <img src={require('../images/registro.png')} alt='Hime registro'/></Col>
+                <Col>
                 
-                />
-            </div>
-            <input type="submit" value="Registrar"/>
-            </form>
+                      <form onSubmit={handleSubmit} className='form-group'>
+                      <div>
+                          <label className='form-label'>Nombre o correo:</label>
+                          <input 
+                          type="text"
+                          value={email}
+                          className='form-input' 
+                          onChange={(e)=>setEmail(e.target.value)}/>
+                      </div>
+                      <div>
+                          <label className='form-label'>Contraseña:</label>
+                          <input type="password" 
+                          value={passwd}
+                          onChange={(e)=>{setPasswd(e.target.value); validar(e.target.value)}}
+                          className='form-input'
+                           />
+                      </div>
+                      <input type="submit" value="Registrar"/>
+                      </form>
 
-        <div>
-            <p style={{ color: isValidMin ? 'green' : 'red' }}>minimo 7 caracteres</p>
-            <p style={{ color: isValidNum ? 'green' : 'red' }}>un numero</p>
-            <p style={{ color: isValidUpper ? 'green' : 'red' }}>una mayuscula</p>
-        </div>
+                  <div>
+                      <p style={{ color: isValidMin ? 'green' : 'red' }}>minimo 7 caracteres</p>
+                      <p style={{ color: isValidNum ? 'green' : 'red' }}>un numero</p>
+                      <p style={{ color: isValidUpper ? 'green' : 'red' }}>una mayuscula</p>
+                  </div>
+                </Col>
+            </Row>
+        </Container>
 
-        <button onClick={()=>REGISTRO_GOOGLE()}>registroGoogle</button>
+        <button className='form-btn-google' onClick={()=>REGISTRO_GOOGLE()}>
+        <img src={require('../images/buscar.png')} alt='google' className='iconito-google'/>
+        Registra con Google
+        </button>
                 <p>¿Ya tienes una cuenta?</p>
                 <p>INICIAR SESSION</p>
     </div>

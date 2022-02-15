@@ -12,7 +12,7 @@ const Main_hero = ({title, sinopsis, image}) => {
 
 
     return (
-    
+    <Container> 
     <div className='contenedor_hero'>
         <div className='bg-image'>
         {console.log('Image:',)}
@@ -27,6 +27,7 @@ const Main_hero = ({title, sinopsis, image}) => {
         
 
     </div>
+    </Container>
   )
 }
 

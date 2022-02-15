@@ -1,3 +1,67 @@
+.iconito-google{
+    width: 2rem;
+
+    background-color: #fff;
+    padding: 0.1rem;
+    margin-right: 0.5rem;
+}
+
+.form-btn-google{
+    background-color: #307FF4;
+    color: #fff;
+    padding: 0.1rem 0.5rem;
+    font-weight: bold;
+}
+
+.flex-justificar-center{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-group{
+    margin-bottom: 3rem;
+}
+
+.form-label{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-input{
+    width: 100%;
+    background-color: transparent;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+    padding: .5rem;
+    color: #FFFFFF;
+}
+
+
+/* ------------------estilos de CARD_MAIN ---------------------------*/
+.card_text{
+    
+    
+    padding: 2rem;
+}
+.card_image{
+max-height: 20rem;
+-webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+.card_style{
+    background-color: #141519;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    
+}
+
+/* ------------------estilos de MAIN_HERO ---------------------------*/
 .image_hero{
     height: 100%;
     position: absolute;
