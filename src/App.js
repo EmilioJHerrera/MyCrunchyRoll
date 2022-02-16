@@ -14,24 +14,28 @@ import Footer from './components/Footer';
 import Registro from './auth_screen/Registro';
 import Main from './components/Main';
 import Main_hero from './components/Main_hero';
-
+import Home from './components/Home';
+import React_router from './RouteDom/React_router';
+import {BrowserRouter as Router} from 'react-router-dom';
+import { UserProvider } from './Context/UserContext';
 
 function App() {
   return (
+    <UserProvider>
     <div className="App">
-      {/* <Header_intro/>
-      <Intro />
-      <Header_intro/>
-      <Jumbo_uno/>
-      <Jumbo_dos/>
-      <Jumbo_tres/>
-      <Footer/> */}
+      
+    <React_router/>
 
-      <Registro/>
+
+      
+       {/* <Home/> */}
+
+      {/*<Registro/> */}
       
       {/* <Main/> */}
 
     </div>
+    </UserProvider>
   );
 }
 

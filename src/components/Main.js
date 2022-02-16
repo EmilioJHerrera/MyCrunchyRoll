@@ -4,8 +4,10 @@ import Card_main from './Card_main';
 import Carrousel from './Carrousel';
 import Main_hero from './Main_hero';
 
+//import { useGlobalContext } from '../Context/UserContext';
+
 const Main = () => {
-  
+
     // const [idAnime, setIdAnime] = useState('');
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,7 +17,7 @@ const Main = () => {
     // top https://api.jikan.moe/v4/top/anime
     //  la info el onclick: https://api.jikan.moe/v4/anime/{id}
 
-
+//    const {userData} = useGlobalContext();
     
     const randomNumber = (min,max) =>{
       return Math.floor(Math.random() * (max - min)) + min;
@@ -136,7 +138,7 @@ const Main = () => {
   
     return (
     <div>
-        <h1>Main</h1>
+        <h1>Bienvenido</h1>
 
         <Container  fluid className='blackBg'>
 

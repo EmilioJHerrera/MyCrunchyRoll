@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { Container,Row, Col } from 'react-bootstrap'
 
 import { initializeApp } from "firebase/app";
@@ -8,10 +8,18 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
+import { Link, useNavigate } from 'react-router-dom';
+import Header_intro from '../components/Header_intro';
+import Main from '../components/Main';
+
+ //import { useGlobalContext } from '../Context/UserContext';
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [passwd, setPasswd] = useState('');
-
+    const [user, setUser] = useState('');
+    let navigate = useNavigate();
+  // let {setUserData,userData} = useGlobalContext();
    //---------------------------------------------------------------------------------
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -41,7 +49,13 @@ signInWithPopup(auth, provider)
     const token = credential.accessToken;
     // The signed-in user info.
     const user = result.user;
+    const Nombreuser = result.user.displayName;
+    console.log('Nombreuser:',Nombreuser)
+    
+   setUser(Nombreuser);
     console.log('user:',user)
+    
+     navigate('/main')
     // ...
   }).catch((error) => {
     // Handle Errors here.
@@ -54,6 +68,7 @@ signInWithPopup(auth, provider)
     // ...
   });
 }
+
 
 const handleValidateEmail = (text) => {
     const emailRegex = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/i);
@@ -78,6 +93,7 @@ const handleValidateEmail = (text) => {
 
     return (
         <div className='blackBg'>
+        <Header_intro/>
         <h1>Login</h1>
           <Container>
               <Row className="flex-justificar-center">
@@ -111,10 +127,14 @@ const handleValidateEmail = (text) => {
   
           <button className='form-btn-google' onClick={()=>REGISTRO_GOOGLE()}>
           <img src={require('../images/buscar.png')} alt='google' className='iconito-google'/>
-          Registra con Google
+          Entra con Google
           </button>
                   <p>¿No tienes una cuenta?</p>
-                  <p>Registrate</p>
+                  {/* <p>Registrate</p> */}
+                  <Link to='/Registro'>Registrate</Link>
+
+      
+
       </div>
   )
 }

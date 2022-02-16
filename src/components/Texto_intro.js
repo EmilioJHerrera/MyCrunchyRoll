@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'; 
 import '../styles.css';
+import { NavLink, Link } from 'react-router-dom';
 
 const Texto_intro = () => {
   return (
@@ -11,6 +12,7 @@ const Texto_intro = () => {
         <Container>
             <Row>
                 <Col><button className='boton' onClick={()=>{console.log('aqui')}}>miboton</button></Col>
+                <Col><Link to='/Login' className='boton'>LogIn</Link></Col>
                 <Col><button className='boton'>miboton</button></Col>
             </Row>
         </Container>

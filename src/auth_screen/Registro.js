@@ -9,7 +9,11 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import "../styles.css";
-import { SIGN_UP_URL } from '../Data/Urls';
+
+import {Link} from 'react-router-dom';
+import Header_intro from '../components/Header_intro';
+
+
 
 const Registro = () => {
   
@@ -165,10 +169,10 @@ const validar = (password) =>{
 
     return (
     <div className='blackBg'>
+      <Header_intro/>
       <h1>Registro</h1>
         <Container>
             <Row className="flex-justificar-center">
-                <Col> <img src={require('../images/registro.png')} alt='Hime registro'/></Col>
                 <Col>
                 
                       <form onSubmit={handleSubmit} className='form-group'>
@@ -197,15 +201,17 @@ const validar = (password) =>{
                       <p style={{ color: isValidUpper ? 'green' : 'red' }}>una mayuscula</p>
                   </div>
                 </Col>
+                <Col> <img src={require('../images/registro.png')} alt='Hime registro'/></Col>
             </Row>
         </Container>
 
         <button className='form-btn-google' onClick={()=>REGISTRO_GOOGLE()}>
         <img src={require('../images/buscar.png')} alt='google' className='iconito-google'/>
-        Registra con Google
+        Entra con Google
         </button>
                 <p>¿Ya tienes una cuenta?</p>
-                <p>INICIAR SESSION</p>
+                {/* <p>INICIAR SESSION</p> */}
+                <Link to='/Login'>Inicia sesión</Link>
     </div>
   )
 }
