@@ -11,6 +11,7 @@ import Home from '../components/Home';
 import Registro from '../auth_screen/Registro';
 import Login from '../auth_screen/Login';
 import Main from '../components/Main';
+import AnimeDetail from '../components/AnimeDetail';
 
 
 const React_router = () => {
@@ -27,6 +28,8 @@ const React_router = () => {
             
             <Route path='/Main' element={<Main />} />
             
+            <Route path='/detail/:id' element={<AnimeDetail />} />
+
          </Routes>   
     </Router>
   )

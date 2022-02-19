@@ -1,13 +1,16 @@
 import React from 'react'
 import { Container,Row, Col } from 'react-bootstrap'
 
+import { Link, useParams } from 'react-router-dom'
+
 import '../styles.css'
 
 
-const Main_hero = ({title, sinopsis, image}) => {
+const Main_hero = ({title, sinopsis, image, id}) => {
   
   
-  
+//   const slug = title;
+//     console.log ('id:',id);
 
 
 
@@ -23,6 +26,8 @@ const Main_hero = ({title, sinopsis, image}) => {
         <div className='bg-text'>
         <h1>{title}</h1>
         <p>{sinopsis}</p>
+        <p>{id}</p>
+        <button><Link to ={`/detail/${id}`} >ver detalles</Link></button>
         </div>
         
 

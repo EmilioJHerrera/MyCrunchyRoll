@@ -86,7 +86,7 @@ const Main = () => {
             }
               consulta();
         }
-          ConsultarApiByTop();
+          // ConsultarApiByTop();
 
 
       
@@ -149,7 +149,7 @@ const Main = () => {
         <>
         {data.length > 0 &&
 
-<Main_hero title={data[heroNum].title} sinopsis={data[heroNum].synopsis} image={data[heroNum].images.jpg.image_url} />
+<Main_hero title={data[heroNum].title} sinopsis={data[heroNum].synopsis} image={data[heroNum].images.jpg.image_url} id={data[heroNum].mal_id}/>
 }
 
 <h3>Top animes</h3>
