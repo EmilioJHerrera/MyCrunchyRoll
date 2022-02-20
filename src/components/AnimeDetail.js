@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
+import {Container, Row, Col, Spinner} from 'react-bootstrap'
+
+
 const AnimeDetail = () => {
   
    const params = useParams();
    const {id} = params;
   console.log('params',params);
     const [AnimeDetail,setAnimeDetail] = useState([]);
-
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         const consultaApiByID = async ()=>{
@@ -16,6 +19,8 @@ const AnimeDetail = () => {
                 console.log('resultado.data:',resultado.data);
                 
                 setAnimeDetail(resultado.data);
+                setLoading(false);
+                console.log('AnimeDetail: ok:', resultado.data);
                
             } catch (error) {
                 console.log('error:',error);
@@ -26,23 +31,45 @@ const AnimeDetail = () => {
   
     return (
     <div>
-        AnimeDetail:
-        {id}  
-        <p>{AnimeDetail.title}</p>
-        <p>{AnimeDetail.synopsis}</p>
-        <p>{AnimeDetail.image_url}</p>
-        <p>{AnimeDetail.episodes}</p>
-        <p>{AnimeDetail.score}</p>
-        <p>{AnimeDetail.type}</p>
-        <p>{AnimeDetail.rating}</p>
-        <p>{AnimeDetail.year}</p>
-{/*         
+        {loading ?         <Spinner animation="border" variant="warning" />: 
+        <div>
+        
+        <Container>
+        <h2>{AnimeDetail.title}</h2>
+            <Row>
+                <Col>
+        <p>Sinopsis: {AnimeDetail.synopsis}</p>
+                
+        <p>Número de episodios: {AnimeDetail.episodes}</p>
+        <p>Score: {AnimeDetail.score} /10</p>
+        {/* <p>Tipo: {AnimeDetail.type}</p> */}
+        <p>Clasificacion: {AnimeDetail.rating}</p>
+<Row>
         {AnimeDetail.genres.map((genre,index) =>{
             const {name} = genre;
             return(
+                <Col>
                 <p key={index}>{name}</p>
+                </Col>
             )
-        })} */}
+        })}
+
+
+
+</Row>
+                </Col>
+                <Col>
+        <img src={AnimeDetail.images.jpg.large_image_url} alt='...' className='image'/>
+        <p>{AnimeDetail.year}</p>
+                </Col>
+            </Row>
+        </Container>
+        
+        
+        
+        {id}  
+        <p>{AnimeDetail.images.jpg.large_image_url}</p>
+        
 
 
         
@@ -66,8 +93,9 @@ const AnimeDetail = () => {
         >
 
         </iframe> */}
-        
-        {console.log('AnimeDetail.trailer_url:',AnimeDetail.trailer)}
+        </div>
+        }
+        {console.log('AnimeDetail.trailer:',AnimeDetail.trailer)}
     </div>
   )
 }

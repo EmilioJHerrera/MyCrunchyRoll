@@ -10,6 +10,11 @@ const Main = () => {
 
     // const [idAnime, setIdAnime] = useState('');
     const [data, setData] = useState([]);
+    const [data1, setData1] = useState([]);
+    const [data2, setData2] = useState([]);
+    const [data3, setData3] = useState([]);
+
+    const [isComplete, setIsComplete] = useState(false);
     const [loading, setLoading] = useState(false);
     const [heroNum, setHeroNum] = useState(0);
     // porque viste https://api.jikan.moe/v4/anime/{id}/recommendations
@@ -36,10 +41,7 @@ const Main = () => {
                 setHeroNum(randomNumber(0,26));
             } catch (error) {
                 console.log('error:',error);
-            }
-
-
-            
+            }          
           }
             consulta();
       }
@@ -48,48 +50,70 @@ const Main = () => {
 
         const ConsultarApiByTop =() =>{
             const consulta = async () =>{
-              let misBusquedas =["kill la kill", 'evangelion', 'dragon ball', 'naruto', 'one piece', 'fairy tail', 'bleach', 'one punch']  
               let info=[]
+              let data1=[]
+              let data2 =[] 
+              let data3=[]
+              
               try {
-                 
-                misBusquedas.forEach(async (item)=>{
-                  const response = await fetch ('https://api.jikan.moe/v3/search/anime?q='+item+'&sfw');
+ 
+                  const response = await fetch ('https://api.jikan.moe/v4/genres/anime');
                   const resultado = await response.json();
-                  console.log('resultadoMIS_BUSQUEDAS:',resultado.data);
-                  info.push(resultado.data);
-                  console.log('info:',info);
-                })
+                  // console.log('resultado_TOP:',resultado);
+                  info = resultado.data;
 
-                
-                
-                const response = await fetch ('https://api.jikan.moe/v4/genres/anime');
-                  const resultado = await response.json();
-                  console.log('resultado_TOP:',resultado);
-                  // console.log('resultado_TOP data:',resultado.data);
-                  // console.log('resultado_TOP id:',resultado.data[0].mal_id);
-                  //   setIdAnime(resultado.data[0].mal_id);
-                  // console.log('resultado_TOP title:',resultado.data[0].title);
-                  // 41946 harem
-                  //22199 akame ga kill
-                  // 46 samurai x
-                  // 30 evangelion
-                  // busqueda por nombre https://api.jikan.moe/v4/anime?q=evangelion&sfw
-                  // console.log('resultado_TOP image:',resultado.data[0].images.jpg.image_url);
-                  
+                  console.log('info',info)
+                  data1 = info.splice(0,25);
+                  data2 = info.splice(26,50);
+                  data3 = info.splice(51,75);
 
+                    //   info.forEach(element => {
+                    // // console.log('element.name',element.name)
+                    //         if(element.name === 'Comedy'){
+                    //           comedia.push(element)
+                    //         } 
+                    //         if (element.name === 'Ecchi'){
+                    //           ecchi.push(element)
+                    //         }
+                    //         if(element.name === 'School'){
+                    //           school.push(element)
+                    //         }
+                    //       }
+                    //       );  
               } catch (error) {
-                  console.log('error:',error);
+                console.log('error:',error);
               }
-  
-  
+              
+              setData1(data1);
+              setData2(data2);
+              setData3(data3);
+              
               
             }
               consulta();
         }
-          // ConsultarApiByTop();
+      //        ConsultarApiByTop();
 
-
-      
+setIsComplete(true);
+        //   const ConsultarEcchi =() =>{
+        //     const consulta = async () =>{
+        //         console.log('idEcchi:',id_Ecchi);
+        //       try {
+        //           const response = await fetch (`https://api.jikan.moe/v4/anime/9/recommendations`);
+        //           const resultado = await response.json();
+        //           // console.log('resultado:',resultado.data);
+                  
+        //           setDataEcchi(resultado.data);
+        //           console.log('dataEcchi:',dataEcchi);
+        //           setIsComplete(true);
+        //       } catch (error) {
+        //           console.log('error:',error);
+        //       }          
+        //     }
+        //       consulta();
+        // }
+        //   ConsultarEcchi();
+        
 
   },[])
 
@@ -103,7 +127,7 @@ const Main = () => {
     console.log('data:',data);
     
     //aqui apagar el loading
-  },[data])
+  },[isComplete])
 
 
   // useEffect(()=>{
@@ -154,21 +178,15 @@ const Main = () => {
 
 <h3>Top animes</h3>
 <Carrousel data={data}/>
-        <Row>
+        {/* <Row>
         {data.map((item,index)=>{
           return(
             <Card_main index={index} item={item}/>
-            // <Col>
-            //     <div key={index}>
-            //         <img src={item.images.jpg.image_url} alt="{item.title}"/>
-            //         {/* <p>{item.mal_id}</p> */}
-            //         <p>{item.title}</p>
-            //         {/* <p>{item.images.jpg.image_url}</p> */}
-            //     </div>
-            //     </Col>
-            )
+          )
           })}
-        </Row>
+        </Row> */}
+        <h3>Data 1</h3>
+
         </>             
          }
 

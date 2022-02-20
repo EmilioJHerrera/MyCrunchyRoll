@@ -4,7 +4,7 @@ import { createContext } from "react";
 const UserContext = createContext({});
 const UserProvider = ({children}) =>{
 
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState('Aqui');
     
     return(
         <UserContext.Provider value={{userData,setUserData}}>
