@@ -5,7 +5,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -78,16 +78,31 @@ const handleValidateEmail = (text) => {
   }
 
   const consulta_ingreso = ()=>{
-      console.log('aqui hay que hacer las consula firebase')
+      console.log('aqui hay que hacer las consulta firebase')
+      const auth = getAuth();
+signInWithEmailAndPassword(auth, email, passwd)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log('user:',user)
+    navigate('/main')
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    console.log(errorCode)
+    const errorMessage = error.message;
+    console.log(errorMessage)
+  });
   }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        if(handleValidateEmail(email)){
+        //if(handleValidateEmail(email)){
             consulta_ingreso();
-        }else{
+        //}else{
             console.log('email no valido');
-        }
+        //}
     }
 
 

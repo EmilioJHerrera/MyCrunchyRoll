@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react'
 import { Container,Row, Col, Spinner } from 'react-bootstrap'
 import Card_main from './Card_main';
 import Carrousel from './Carrousel';
+import Ecchi from './Ecchi';
 import Main_hero from './Main_hero';
 
 //import { useGlobalContext } from '../Context/UserContext';
@@ -186,7 +187,7 @@ setIsComplete(true);
           })}
         </Row> */}
         <h3>Data 1</h3>
-
+          <Ecchi/>
         </>             
          }
 

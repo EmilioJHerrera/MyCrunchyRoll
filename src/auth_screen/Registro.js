@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Container,Row, Col } from 'react-bootstrap'
+import { Container,Row, Col, Modal, Button } from 'react-bootstrap'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -10,8 +10,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import "../styles.css";
 
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Header_intro from '../components/Header_intro';
+import AlertRegistro from './AlertRegistro';
 
 
 
@@ -23,6 +24,8 @@ const Registro = () => {
     const [isValidNum, setIsValidNum] = useState(false);
     const [isValidUpper, setIsValidUpper] = useState(false);
 
+    //let navigate = useNavigate();
+    const [show, setShow] = useState(false); //mostrar el alert para el registro
  //---------------------------------------------------------------------------------
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -74,6 +77,9 @@ signInWithPopup(auth, provider)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        console.log('user:',user);
+         setShow(true);
+        //navigate("/Registro/OK")
         // ...
       })
       .catch((error) => {
@@ -83,6 +89,9 @@ signInWithPopup(auth, provider)
         console.log('errorMessage:',errorMessage)
         // ..
       });
+
+
+
  }
 
 //----------------------------------------------------------------------------------
@@ -139,38 +148,17 @@ const validar = (password) =>{
     
 }
 
-// const RegistroFIREBASE = () =>{
-//     const registra = async () => {
-//         try{
-//             const response  = await fetch( SIGN_UP_URL,{
-//                 method: 'POST',
-//                 headers:{
-//                     'Contenxt-Type': 'application/json',
-//                 },
-                
-//                 body: JSON.stringify({
-//                     email,
-//                     passwd,
-//                     returnSecureToken: true,
-//                 }),
-//             });
-        
-//             const resultado = await response.json();
-//             console.log('resultado:',resultado);
-//         }
-//         catch(error){
-//             console.log('error:',error)
-//         }
-//     }
-//     registra();
-
-// };
 
 
     return (
     <div className='blackBg'>
       <Header_intro/>
       <h1>Registro</h1>
+        {show && <AlertRegistro email={email}/>}
+          
+
+        {!show && (
+        
         <Container>
             <Row className="flex-justificar-center">
                 <Col>
@@ -205,6 +193,8 @@ const validar = (password) =>{
             </Row>
         </Container>
 
+)}
+
         <button className='form-btn-google' onClick={()=>REGISTRO_GOOGLE()}>
         <img src={require('../images/buscar.png')} alt='google' className='iconito-google'/>
         Entra con Google
@@ -212,6 +202,8 @@ const validar = (password) =>{
                 <p>¿Ya tienes una cuenta?</p>
                 {/* <p>INICIAR SESSION</p> */}
                 <Link to='/Login'>Inicia sesión</Link>
+
+                
     </div>
   )
 }
