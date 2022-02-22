@@ -11,7 +11,7 @@ const Texto_J_uno = ({title,subTitle,Data}) => {
 
   return (
     <div>
-        <Container>
+        <Container className='contenedor_text_intro contenedor_max_vh'>
             <h3 className='texto_blanco'>{title}</h3>
             <p className='texto_gris'>{subTitle}</p>
 

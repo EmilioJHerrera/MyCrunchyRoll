@@ -15,8 +15,8 @@ const Jumbo_tres = () => {
       <Col>
       <Texto_J_uno title={'Toma el control con las Crunchylistas'} subTitle={'¿Quieres hacerte una colección de series con protagonistas de pelo verde? Pues sin problema:'} Data={Data}/>
       </Col>
-      <Col>
-      <img src={require('../images/mockup.png')} alt='mockups' className='image'/>
+      <Col className='contenedor_text_intro'>
+      <img src={require('../images/mockup.png')} alt='mockups' className='image_jumbo_uno'/>
       </Col>
             </Row>
         </Container>

@@ -15,8 +15,8 @@ const Jumbo_dos = () => {
   
   <Container fluid className='background_gray_gradient'>
             <Row>
-      <Col>
-      <img src={require('../images/keyarts.png')} alt='key arts' className='image'/>
+      <Col className='contenedor_text_intro'>
+      <img src={require('../images/keyarts.png')} alt='key arts' className='image_jumbo_dos'/>
       </Col>
       <Col>
       <Texto_J_uno title={'Te sentirás más en casa que nunca con la nueva página principal'} subTitle={'Lo hemos reorganizado todo a tu conveniencia.'} Data={Data}/>

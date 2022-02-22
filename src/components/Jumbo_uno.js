@@ -13,12 +13,12 @@ const Jumbo_uno = () => {
     <div>
         
         <Container fluid className='blackBg'>
-            <Row>
+            <Row >
       <Col>
       <Texto_J_uno title={'Te sentirás más en casa que nunca con la nueva página principal'} subTitle={'Lo hemos reorganizado todo a tu conveniencia.'} Data={Data}/>
       </Col>
-      <Col>
-      <img src={require('../images/smartmockups.png')} alt='logo crunchy' className='image'/>
+      <Col className='contenedor_text_intro'>
+      <img src={require('../images/smartmockups.png')} alt='logo crunchy' className='image_jumbo_uno '/>
       </Col>
             </Row>
         </Container>

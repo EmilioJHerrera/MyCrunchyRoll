@@ -11,7 +11,7 @@ const Intro = () => {
 
         <Container className='blackBg'>
             <Row>
-          <Col >
+          <Col className='contenedor_text_intro'>
           
             <Texto_intro/>
           </Col>
