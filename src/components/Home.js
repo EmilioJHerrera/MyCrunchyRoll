@@ -6,13 +6,21 @@ import Jumbo_dos from './Jumbo_dos';
 import Jumbo_tres from './Jumbo_tres';
 import Footer from './Footer';
 
+import { Element } from 'react-scroll';
+
 const Home = () => {
+  
+
+ 
   return (
     <div>
         <Header_intro/>
       <Intro />
       <Header_intro/>
-      <Jumbo_uno/>
+        <Element name='jumbo'>
+          <Jumbo_uno/>
+
+        </Element>
       <Jumbo_dos/>
       <Jumbo_tres/>
       <Footer/>

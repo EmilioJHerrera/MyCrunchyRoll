@@ -10,7 +10,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import "../styles.css";
 
-import {Link, useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Header_intro from '../components/Header_intro';
 import AlertRegistro from './AlertRegistro';
 
@@ -151,7 +151,7 @@ const validar = (password) =>{
 
 
     return (
-    <div className='blackBg'>
+    <div className='blackBg contendor_max_vh'>
       <Header_intro/>
       <h1>Registro</h1>
         {show && <AlertRegistro email={email}/>}
@@ -195,10 +195,7 @@ const validar = (password) =>{
 
 )}
 
-        <button className='form-btn-google' onClick={()=>REGISTRO_GOOGLE()}>
-        <img src={require('../images/buscar.png')} alt='google' className='iconito-google'/>
-        Entra con Google
-        </button>
+        
                 <p>¿Ya tienes una cuenta?</p>
                 {/* <p>INICIAR SESSION</p> */}
                 <Link to='/Login'>Inicia sesión</Link>

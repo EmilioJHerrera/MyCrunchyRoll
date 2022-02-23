@@ -6,20 +6,15 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { Link, useNavigate } from 'react-router-dom';
 import Header_intro from '../components/Header_intro';
-import Main from '../components/Main';
-
- //import { useGlobalContext } from '../Context/UserContext';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [passwd, setPasswd] = useState('');
     const [user, setUser] = useState('');
     let navigate = useNavigate();
-  // let {setUserData,userData} = useGlobalContext();
    //---------------------------------------------------------------------------------
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -107,7 +102,7 @@ signInWithEmailAndPassword(auth, email, passwd)
 
 
     return (
-        <div className='blackBg'>
+        <div className='blackBg contenedor_max_vh'>
         <Header_intro/>
         <h1>Login</h1>
           <Container>
@@ -132,7 +127,7 @@ signInWithEmailAndPassword(auth, email, passwd)
                             className='form-input'
                              />
                         </div>
-                        <input type="submit" value="Ingresar"/>
+                        <input type="submit" value="Ingresar" className='boton'/>
                         </form>
   
                     

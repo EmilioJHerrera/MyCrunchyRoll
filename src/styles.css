@@ -1,3 +1,20 @@
+.contenedor_text_detail{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: left;
+}
+
+.image_detail{
+    width:70%;
+}
+
+.detail_label{
+    font-weight: bold;
+    display: inline;
+}
 /*-------------------------estilos Intro--------------------------------*/
 .boton{
     padding: 0.5rem 1rem;
