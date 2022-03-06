@@ -1,3 +1,12 @@
+# Mi versión de CrunchyRoll para manejo de API y autorización con React JS
+
+Alguna de las vistas:
+![Image text](https://github.com/EmilioJHerrera/MyCrunchyRoll/blob/master/intro.png)
+![Image text](https://github.com/EmilioJHerrera/MyCrunchyRoll/blob/master/login.png)
+![Image text](https://github.com/EmilioJHerrera/MyCrunchyRoll/blob/master/Captura.PNG)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
